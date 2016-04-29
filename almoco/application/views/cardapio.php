@@ -39,7 +39,8 @@
                     <td><?= $cardapio->cardapio ?></td>  
     <?php if ($this->session->userdata("id_perfil") == 1) { ?>
                         <td>
-                            <a title="Deletar" href="<?php echo base_url() . 'index.php/almoco/deletar_cardapio/' . $cardapio->id; ?>" onclick="return confirm('Confirma a exclusão deste registro?')"><img src="<?php echo base_url(); ?>assets/img/lixo.png" /></a>
+                            <a title="Deletar" href="javascript:carregaDadosMsg('<?php echo $cardapio->id; ?>');"   ><img src="<?php echo base_url(); ?>assets/img/lixo.png" /></a>
+                          
                             <span> - </span>
                             <a href="javascript:carregaDadosCardapioJSon('<?php echo $cardapio->id; ?>')"> Editar</a>
                         </td>

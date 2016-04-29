@@ -46,7 +46,7 @@ $array_cardapio[0] = "Selecione o Cardápio";
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3 class="modal-title">Cadastro Pessoa</h3>
+                <h3 class="modal-title">Cadastro Cardápio</h3>
             </div>
             <div class="modal-body form">
                 <?php echo form_open($controller, 'id="form-pessoas"'); ?>
@@ -73,7 +73,7 @@ $array_cardapio[0] = "Selecione o Cardápio";
              
 
                 <div class="modal-footer">
-                    
+                     
                     <input type="submit" id="cadastrar" name="cadastrar" value="Cadastrar" class="btn btn-primary" />
                 </div>
                 <?php echo form_close(); ?>

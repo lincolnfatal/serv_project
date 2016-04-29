@@ -250,38 +250,7 @@ class Pessoas extends MY_Controller {
 
     }
     
-    public function dados_cardapio(){
-		
-            //recebo o id_cliente da view para trazer os dados somente daquele cliente
-            $email     = $this->input->post("id_cardapio");
-                   
-
-           $consulta = $this->model->buscar_pessoa($email,$id_pessoa);
-
-            //antes de continuar, verifico se alguma informação foi retornada, para não dar erro.
-            if ($consulta->num_rows() == 0) {
-                    die("Cliente não encontrado");
-            }
-
-            //como eu vou retornar os dados para a view em formato jSon, aqui eu crio os índices para serem acessados dentro da função $.post()
-            $array_clientes = array(
-
-                    "id_pessoa" => $consulta->row()->id,
-                    "nome" => $consulta->row()->nome,
-                    "email" => $consulta->row()->email,
-                    "senha" => $consulta->row()->senha,
-                    "id_perfil"=> $consulta->row()->id_perfil
-             
-                    
-
-            );
-
-            /*
-             * Após os índices criados para o formato jSon, dou um echo no jsonEcode da array acima.
-             */
-            echo json_encode($array_clientes);
-
-    }
+    
 
 }
 

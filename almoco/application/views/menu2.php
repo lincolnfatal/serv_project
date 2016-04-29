@@ -77,6 +77,23 @@
     			
     		}, 'json');
     	}
+        
+        function carregaDadosMsg(id){
+                $('.error').html('');                
+    		$.post(base_url+'index.php/almoco/dados_cardapio', {
+    			id: id
+    		}, function (data){ 
+               /* $("#form-pessoas").attr("action",base_url+"index.php/pessoas/editar/"+data.id_pessoa);
+                var valor = base_url+'/application/views/tela_auxiliar/';*/
+                    $('#myModalMsg').modal('show');
+                    $('#msg_id').html(data.dia);
+                    
+                   // $('#id_perfil option[value=2]').attr({ selected : "selected" });
+                      
+    			
+    		}, 'json');
+    	}
+        
         function novoCadastroPessoa(){
             $('#myModal').modal('show');
             $('.error').html('');

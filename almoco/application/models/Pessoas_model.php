@@ -32,6 +32,7 @@ class Pessoas_model extends CI_Model {
        $this->db->select('pes.*,per.perfil');    
         $this->db->from('pessoas as pes');
         $this->db->join('perfil as per ', 'per.id = pes.id_perfil');
+        $this->db->where('excluido', 0);
         $query = $this->db->get();
        
         $dados['pessoas'] = $query->result();
@@ -54,9 +55,9 @@ class Pessoas_model extends CI_Model {
         return $this->db->update('pessoas');
     }
 
-    function deletar($id) {
-        $this->db->where('id', $id);
-        return $this->db->delete('pessoas');
+    function deletar($dados) {
+        $this->db->where($dados['campo'], $dados['id']);
+        return $this->db->delete($dados['tabela']);
     }
      function deletar_do_sistema($id) {
         $data['excluido'] = 1;       

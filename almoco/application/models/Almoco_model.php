@@ -61,8 +61,10 @@ class Almoco_model extends CI_Model {
         $this->db->join('cardapio_x_dia as card_dia', 'card_dia.id_cardapio = car.id');
         $this->db->join('semana as sem', 'sem.id = card_dia.id_dia');
         $this->db->group_by(array("sem.dia_semana", "car.cardapio")); 
+        $this->db->where('car.excluido', 0); 
         $this->db->order_by('sem.id asc, car.cardapio asc'); 
-       
+                
+        
         $query = $this->db->get();
         $dados['cardapio'] = $query->result();   
         
@@ -90,7 +92,7 @@ class Almoco_model extends CI_Model {
         
        
         $this->db->where('cardapio', $cardapio);             
-       
+        $this->db->where('excluido','0');
        
         $this->db->from('cardapio');    
         
@@ -126,6 +128,30 @@ class Almoco_model extends CI_Model {
         
        
         return  $this->db->get();
+    }
+    
+     function deletar_do_sistema($dados) {
+        $data['excluido'] = 1;       
+        $data['id_usuario_exclusao'] = $this->session->userdata("id_pessoa");
+        $this->db->set('data_exclusao', 'NOW()', FALSE);
+        $this->db->where($dados['campo'], $dados['id']);
+        $this->db->set($data);
+        return $this->db->update($dados['tabela']);      
+       
+    } 
+    
+    function buscar_cardapio($id_cardapio) {
+
+        //echo $this->input->post("email");
+
+        $this->db->where('id', $id_cardapio);
+
+
+        $this->db->from('cardapio');
+
+
+        $query = $this->db->get();
+        return  $query->result();
     }
 }
 
