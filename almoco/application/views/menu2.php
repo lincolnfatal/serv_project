@@ -51,12 +51,14 @@
                     });
                     
                     $("#form-pessoas").attr("action",base_url+"index.php/pessoas/editar/"+data.id_pessoa);
+                    
                     $('#myModal').modal('show');
                     $('#modal_nome').val(data.nome);
                     $('#modal_email').val(data.email);
                     $('#modal_senha').val(data.senha);
                     $('#modal_confirme').val(data.senha);
                     $('#modal_id_pessoa').val(data.id_pessoa);
+                    $('#perfil_div').html(data.perfil);
                    // $('#id_perfil option[value=2]').attr({ selected : "selected" });
                       
     			

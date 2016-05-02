@@ -37,10 +37,18 @@ class Pessoas_model extends CI_Model {
        
         $dados['pessoas'] = $query->result();
         
-        $query = $this->db->get('perfil');
-        $dados['perfil'] = $query->result();
+     
         
         return $dados;
+    }
+    
+    function listar_perfil(){
+        
+        $query = $this->db->get('perfil');
+        $dados = $query->result();
+        
+        return $dados;
+        
     }
 
     function editar($id) {

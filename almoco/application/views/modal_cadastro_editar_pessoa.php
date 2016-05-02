@@ -85,9 +85,11 @@ endforeach;
                 <input value="<?php echo $email_temp; ?>" name="email" id="modal_email" type="email" class="form-control" placeholder="Email" required autofocus name="email">
                 <div class="error"><?php echo form_error('email'); ?></div>
                 <label for="email">Perfil:</label><br/>
-                <?php
-                echo form_dropdown('id_perfil', $array_perfil, $perfil_temp, 'class="form-control" id="id_perfil"');
-                ?>
+                <div id="perfil_div">
+                    <?php
+                    echo form_dropdown('id_perfil', $array_perfil, $perfil_temp, 'class="form-control" id="id_perfil"');
+                    ?>
+                </div>
                 <div class="error"><?php echo form_error('id_perfil'); ?></div>
 
 
